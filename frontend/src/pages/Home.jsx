@@ -1,16 +1,13 @@
-import React, { useContext, useEffect } from "react";
-import NavBar from "../components/NavBar";
-import SideBar from "../components/SideBar";
+import React from "react";
 import Hero from "../components/Hero";
 import Latest from "../components/Latest";
 import Bestseller from "../components/Bestseller";
 import Policies from "../components/Policies";
 import Subscribe from "../components/Subscribe";
-import { ProductContext } from "../context/ProductContext";
 
 const Home = () => {
   return (
-    <div>
+    <div className="flex flex-col gap-24">
       <Hero />
       <Latest />
       <Bestseller />

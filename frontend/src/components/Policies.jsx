@@ -3,33 +3,29 @@ import { assets } from "../assets/frontend_assets/assets";
 
 const Policies = () => {
   return (
-    <div className="w-[80%] mx-auto items-center justify-center text-center px-4 py-16 grid md:grid-cols-3 md:px-16 gap-y-12">
-      <div className="flex flex-col items-center gap-2">
+    <div className="grid md:grid-cols-3 gap-12 px-6 md:px-24 py-20 text-center">
+      <div className="flex flex-col items-center gap-4">
         <img src={assets.exchange_icon} alt="" />
-        <div>
-          <h1 className="text-base font-medium">Easy Exchange Policy</h1>
-          <h1 className="font-sm text-gray-400">
-            We offer hassle free exchange policy
-          </h1>
-        </div>
+        <h1 className="font-medium">Easy Exchange</h1>
+        <p className="text-sm text-gray-500">
+          Hassle free exchange policy
+        </p>
       </div>
-      <div className="flex flex-col items-center gap-2">
+
+      <div className="flex flex-col items-center gap-4">
         <img src={assets.quality_icon} alt="" />
-        <div>
-          <h1 className="text-base font-medium">7 Days Return Policy</h1>
-          <h1 className="font-sm text-gray-400">
-            We provide 7 days free return policy
-          </h1>
-        </div>
+        <h1 className="font-medium">7 Days Return</h1>
+        <p className="text-sm text-gray-500">
+          Free returns within 7 days
+        </p>
       </div>
-      <div className="flex flex-col items-center gap-2">
+
+      <div className="flex flex-col items-center gap-4">
         <img src={assets.support_img} alt="" />
-        <div>
-          <h1 className="text-base font-medium">Best customer support</h1>
-          <h1 className="font-sm text-gray-400">
-            we provide 24/7 customer support
-          </h1>
-        </div>
+        <h1 className="font-medium">24/7 Support</h1>
+        <p className="text-sm text-gray-500">
+          Always here to help you
+        </p>
       </div>
     </div>
   );

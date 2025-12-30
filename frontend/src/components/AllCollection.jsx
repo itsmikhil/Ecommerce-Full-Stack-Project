@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { assets, products } from "../assets/frontend_assets/assets";
 import { NavLink } from "react-router-dom";
 import { ProductContext } from "../context/ProductContext";
@@ -16,94 +16,84 @@ const AllCollection = () => {
 
   return (
     <div className="w-full min-h-screen">
-      <div className="w-[95%] sm:w-[80%] mx-auto flex flex-col sm:flex-row relative py-4">
+      <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row gap-10 px-6 md:px-24 py-10">
         {/* filters */}
-        <div className="w-full sm:w-[20%] flex flex-col gap-4 py-3">
+        <div className="w-full md:w-[22%] flex flex-col gap-6">
           <h1
-            className="uppercase text-xl flex items-center gap-2 cursor-pointer"
+            className="uppercase text-lg tracking-wider flex items-center justify-between cursor-pointer"
             onClick={() => setshowFilters(!showFilters)}
           >
-            filters
+            Filters
             <img
-              className={`w-[0.5rem] h-[1rem] ${
+              className={`w-[0.6rem] ${
                 showFilters ? "rotate-270" : "rotate-90"
               }`}
               src={assets.dropdown_icon}
               alt=""
             />
           </h1>
+
           {/* Categories */}
           {showFilters && (
             <>
-              <div className="flex flex-col gap-2 border-[1px] p-4 border-gray-300">
-                <h1>CATEGORIES</h1>
-                <div className="text-gray-500 text-sm flex flex-col gap-2">
-                  <div className="flex gap-2">
+              <div className="border border-gray-200 p-5 flex flex-col gap-4">
+                <h1 className="uppercase text-sm font-medium">Categories</h1>
+                <div className="text-sm text-gray-600 flex flex-col gap-3">
+                  <label className="flex gap-2 items-center">
                     <input
                       type="checkbox"
-                      name="Men"
-                      id="Men"
-                      value={"Men"}
+                      value="Men"
                       onChange={handleSelectionOfFilter}
                     />
-                    <label htmlFor="Men">Men</label>
-                  </div>
-                  <div className="flex gap-2">
+                    Men
+                  </label>
+                  <label className="flex gap-2 items-center">
                     <input
                       type="checkbox"
-                      name="Women"
-                      id="Women"
-                      value={"Women"}
+                      value="Women"
                       onChange={handleSelectionOfFilter}
                     />
-                    <label htmlFor="Women">Women</label>
-                  </div>
-                  <div className="flex gap-2">
+                    Women
+                  </label>
+                  <label className="flex gap-2 items-center">
                     <input
                       type="checkbox"
-                      name="Kids"
-                      id="Kids"
-                      value={"Kids"}
+                      value="Kids"
                       onChange={handleSelectionOfFilter}
                     />
-                    <label htmlFor="Kids">Kids</label>
-                  </div>
+                    Kids
+                  </label>
                 </div>
               </div>
+
               {/* subcategories */}
-              <div className="flex flex-col gap-2 border-[1px] p-4 border-gray-300">
-                <h1 className="uppercase">Sub Category</h1>
-                <div className="text-gray-500 text-sm flex flex-col gap-2">
-                  <div className="flex gap-2">
+              <div className="border border-gray-200 p-5 flex flex-col gap-4">
+                <h1 className="uppercase text-sm font-medium">Sub Category</h1>
+                <div className="text-sm text-gray-600 flex flex-col gap-3">
+                  <label className="flex gap-2 items-center">
                     <input
                       type="checkbox"
-                      name="Topwear"
-                      id="Topwear"
-                      value={"Topwear"}
+                      value="Topwear"
                       onChange={handleSelectionOfsubCategory}
                     />
-                    <label htmlFor="Topwear">Topwear</label>
-                  </div>
-                  <div className="flex gap-2">
+                    Topwear
+                  </label>
+                  <label className="flex gap-2 items-center">
                     <input
                       type="checkbox"
-                      name="Bottomwear"
-                      id="Bottomwear"
-                      value={"Bottomwear"}
+                      value="Bottomwear"
                       onChange={handleSelectionOfsubCategory}
                     />
-                    <label htmlFor="Bottomwear">Bottomwear</label>
-                  </div>
-                  <div className="flex gap-2">
+                    Bottomwear
+                  </label>
+                  <label className="flex gap-2 items-center">
                     <input
                       type="checkbox"
-                      name="Winterwear"
-                      id="Winterwear"
                       value="Winterwear"
                       onChange={handleSelectionOfsubCategory}
                     />
-                    <label htmlFor="Winterwear">Winterwear</label>
-                  </div>
+                    Winterwear
+                  </label>
                 </div>
               </div>
             </>
@@ -111,20 +101,17 @@ const AllCollection = () => {
         </div>
 
         {/* All collection */}
-        <div className="flex-1 px-4 relative">
+        <div className="flex-1">
           {/* Top */}
-          <div className="flex justify-between">
+          <div className="flex justify-between items-center mb-8">
             <div className="flex items-center gap-2 uppercase">
-              <h1 className=" sm:text-3xl font-medium text-gray-500">All</h1>
-              <h1 className=" sm:text-3xl font-medium">Collection</h1>
-              <hr className="w-7" />
+              <h1 className="text-3xl font-light text-gray-500">All</h1>
+              <h1 className="text-3xl font-medium">Collection</h1>
             </div>
-            <div className="border-[1px] border-gray-300 p-2">
-              <label htmlFor="price">Price:</label>
+
+            <div className="border border-gray-300 px-3 py-2 text-sm">
               <select
-                name="price"
-                id="price"
-                className="outline-none"
+                className="outline-none bg-transparent"
                 onChange={(e) => setpricingOrder(e.target.value)}
               >
                 <option value="Relevant">Relevant</option>
@@ -133,35 +120,31 @@ const AllCollection = () => {
               </select>
             </div>
           </div>
+
           {/* Products */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
             {products &&
               filteredProducts &&
-              filteredProducts.reverse().map((item, index) => {
-                return (
-                  <div
-                    key={index}
-                    className="flex flex-col gap-2 cursor-pointer"
-                  >
-                    <NavLink
-                      onClick={() => handleSingleProduct(item._id)}
-                       to={`/product/${item._id}`}
-                    >
-                      <div className="overflow-hidden">
-                        <img
-                          src={item.images[0]}
-                          className="hover:scale-105 transition-transform ease-out duration-150 object-cover"
-                          alt=""
-                        />
-                      </div>
-                      <div>
-                        <h1 className="text-[0.8rem]">{item.name}</h1>
-                        <h1 className="text-sm">${item.price}</h1>
-                      </div>
-                    </NavLink>
+              filteredProducts.map((item, index) => (
+                <NavLink
+                  key={index}
+                  onClick={() => handleSingleProduct(item._id)}
+                  to={`/product/${item._id}`}
+                  className="group"
+                >
+                  <div className="overflow-hidden bg-gray-100">
+                    <img
+                      src={item.images[0]}
+                      alt=""
+                      className="group-hover:scale-110 transition duration-300 object-cover"
+                    />
                   </div>
-                );
-              })}
+                  <div className="mt-3 text-center">
+                    <h1 className="text-sm text-gray-700">{item.name}</h1>
+                    <h1 className="text-sm font-medium">${item.price}</h1>
+                  </div>
+                </NavLink>
+              ))}
           </div>
         </div>
       </div>

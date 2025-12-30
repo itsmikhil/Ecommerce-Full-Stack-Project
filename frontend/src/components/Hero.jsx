@@ -3,23 +3,29 @@ import { assets } from "../assets/frontend_assets/assets";
 
 const Hero = () => {
   return (
-    <div className="w-full px-8 sm:px-32 py-8 ">
-      <div className="flex flex-col sm:flex-row justify-between w-full h-full border-[1px] border-gray-400">
-        <div className="left flex flex-col justify-center gap-2 px-16 py-8 sm:py-0">
-          <h1 className="uppercase flex items-center text-md gap-2">
-            <hr className="w-8" />
-            our bestsellers
+    <div className="w-full px-6 md:px-24 py-12">
+      <div className="grid md:grid-cols-2 border border-gray-200">
+        <div className="flex flex-col justify-center px-8 md:px-16 gap-4">
+          <h1 className="uppercase tracking-widest text-sm text-gray-500 flex items-center gap-3">
+            <span className="w-10 h-[1px] bg-gray-400"></span>
+            Our Bestsellers
           </h1>
-          <h1 className="font-[prata] text-3xl sm:text-5xl text-gray-600">
+
+          <h1 className="font-[prata] text-4xl md:text-6xl text-gray-800 leading-tight">
             Latest Arrivals
           </h1>
-          <h1 className="uppercase flex items-center text-md gap-2">
-            shop now
-            <hr className="w-8" />
-          </h1>
+
+          <button className="mt-6 w-fit uppercase tracking-wider text-sm border-b border-black pb-1">
+            Shop Now
+          </button>
         </div>
-        <div className="right w-full sm:w-[50%]">
-          <img src={assets.hero_img} alt="" />
+
+        <div className="bg-[#f6d6d3] flex items-center justify-center">
+          <img
+            src={assets.hero_img}
+            alt=""
+            className="object-cover w-full h-full"
+          />
         </div>
       </div>
     </div>

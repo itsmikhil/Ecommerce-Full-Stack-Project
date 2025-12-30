@@ -4,9 +4,9 @@ import Subscribe from '../components/Subscribe'
 
 const Collection = () => {
   return (
-    <div>
+    <div className="flex flex-col gap-24">
       <AllCollection />
-      <Subscribe/>
+      <Subscribe />
     </div>
   )
 }

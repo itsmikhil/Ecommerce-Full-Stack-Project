@@ -31,7 +31,7 @@ const NavBar = () => {
   return (
     <>
       <div className="w-full flex px-6 md:px-24 justify-between py-4 items-center">
-        <img className="w-[9rem] object-cover" src={assets.logo} alt="" />
+        <img className="w-[6rem] object-cover" src={assets.logo} alt="" />
         <ul className="hidden md:inline-flex  gap-4 ">
           <li className="uppercase text-md relative">
             <NavLink to={"/"}>
