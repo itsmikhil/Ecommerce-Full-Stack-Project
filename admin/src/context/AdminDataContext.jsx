@@ -135,11 +135,9 @@ export const AdminDataContextProvider = ({ children }) => {
         {},
         { headers: { token } }
       );
-      console.log(res.data);
 
       if (res.data.success) {
         setorders(res.data.allOrders);
-        console.log(orders);
       } else {
         toast.error(res.data.message);
       }
