@@ -12,31 +12,32 @@ import orderRouter from "./routes/orderRoute.js";
 dotenv.config();
 const app = express();
 
-mongoDBConnect();
-connectCloudinary();
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(
-  cors({
-    origin: ["https://ecommerce-full-stack-project-fro.vercel.app"],
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: ["https://ecommerce-full-stack-project-fro.vercel.app"],
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+  credentials: true,
+}));
 
 app.options("*", cors());
 
-app.use("/api/admin", adminRouter);
-app.use("/api/user", userRouter);
+// Confirming connection with DB
+app.use(async (req, res, next) => {
+  try {
+    await mongoDBConnect();
+    next();
+  } catch (err) {
+    res.status(500).json({ message: "DB connection failed" });
+  }
+});
+
 app.use("/api/products", productRouter);
+app.use("/api/user", userRouter);
+app.use("/api/admin", adminRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
-
-app.get("/", (req, res) => {
-  res.send("Working");
-});
 
 /* Why app.listen() Must Be Removed When Deploying to Vercel
 
